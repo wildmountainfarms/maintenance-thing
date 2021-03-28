@@ -1,0 +1,32 @@
+buildscript {
+    ext {
+        // https://github.com/spring-projects/spring-boot/wiki#release-notes
+        springBootVersion = '2.4.0'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+apply plugin: "kotlin"
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+
+version = '0.0.1-SNAPSHOT'
+//project.ext.mainClass = "me.retrodaredevil.maintenance.MaintenanceThingApplication"
+
+dependencies {
+    implementation "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // https://mvnrepository.com/artifact/com.graphql-java/graphql-java-spring-boot-starter-webmvc
+    implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:2.0'
+
+//    implementation 'com.graphql-java:graphql-java:14.0' graphql-spqr adds this dependency
+    implementation 'io.leangen.graphql:spqr:0.11.1'
+}
