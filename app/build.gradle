@@ -36,4 +36,6 @@ task copyWebApp(type: Copy) {
     from "$rootDir/client/build"
     into "$rootDir/app/build/resources/main/static/."
 }
+copyWebApp.dependsOn(":client:build")
 bootJar.dependsOn(copyWebApp)
+bootRun.dependsOn(copyWebApp)
