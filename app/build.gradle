@@ -29,4 +29,11 @@ dependencies {
 
 //    implementation 'com.graphql-java:graphql-java:14.0' graphql-spqr adds this dependency
     implementation 'io.leangen.graphql:spqr:0.11.1'
+
+    runtimeOnly project(":client")
 }
+task copyWebApp(type: Copy) {
+    from "$rootDir/client/build"
+    into "$rootDir/app/build/resources/main/static/."
+}
+bootJar.dependsOn(copyWebApp)

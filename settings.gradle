@@ -1,2 +1,3 @@
 rootProject.name = 'maintenance-thing'
 include 'app'
+include 'client'
