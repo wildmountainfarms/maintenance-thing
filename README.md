@@ -31,6 +31,20 @@ comments, pictures, etc. Examples of things are:
 Things may be something that you have and stay, such as a car, or they can be something like food, which you need to
 acquire frequently.
 
+Things can also link to other things, however there can be different types of links. Examples:
+* "Far right cabinet" has an inventory link to "box of cheez-its"
+  * This inventory link keeps track of how many boxes you have - "count=3"
+* "Cabin" has a container link to "white bunk bed"
+* "Rocky" has a type link to "dog"
+* "Steve" has a type link to "stallion"
+* "stallion" has a type link to "horse"
+* "The Property" has a container link to "The Garage"
+* "The Garage" has a container link to "Battery Room"
+* "Battery Room" has a container link to "Battery Room Temperature"
+
+... "Battery Room Temperature" (or the link) will somehow be able to keep track of the temperature
+and the historical data for that. This historical data should have some sort of retention policy
+
 ### Maintenance Task
 A "maintenance task" is a concept in maintenance thing. Tasks usually have instructions associated with them,
 and can link to "things". Tasks can be:
@@ -41,6 +55,17 @@ and can link to "things". Tasks can be:
 * Change the oil in the car
   * Requires "car tools", acts upon "the car"
 * Do an equalize charge of the batteries using the generator
+
+Maintenance tasks can also have results associated with them, which after all results are completed,
+the scheduled task (described below) is "done".
+For instance:
+* fixing the car
+  * status: "success" or "failed".
+  * completed: date
+* report how many bags of dog food we have in storage
+  * count: non-negative integer
+* take the car to shop
+  * cost of repair: non-negative number
 
 ### Assign Method
 An "assign method" is a concept in maintenance thing. Examples:
@@ -67,6 +92,8 @@ Examples:
   * "Move coats from basement to first floor" - assign to John
 * 10 days after "Add distilled water to the batteries" was completed
   * "Do an equalize charge"
+
+"Triggers" is another possible concept
   
 ### Scheduled Task
 A "scheduled task" is a concept in maintenance thing. A scheduled task is associated with a task and has a date.
@@ -91,3 +118,8 @@ so that it stays even if the "maintenance schedule" is altered.
 
 A "scheduled task" is optionally associated with a "maintenance schedule", so that we can tell if a non-confirmed
 "scheduled task" is made from a stale (deleted or altered) "maintenance schedule".
+
+
+### TODO
+* Support viewing of PDF documents
+  * https://www.npmjs.com/package/reactjs-pdf-reader

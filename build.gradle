@@ -43,12 +43,17 @@ subprojects {
         testImplementation "org.junit.jupiter:junit-jupiter-engine:$junit5Version"
         testImplementation "org.junit.jupiter:junit-jupiter-api:$junit5Version"
     }
+    repositories {
+        maven { url 'https://www.jitpack.io' }
+    }
     test {
         useJUnitPlatform()
     }
     compileKotlin {
         kotlinOptions {
+            languageVersion = "1.4"
             jvmTarget = "1.8"
+            // jsr305 gives nullable/nonnull support for Java code annotated with javax stuff
             freeCompilerArgs += ["-Xjsr305=strict"]
         }
     }
