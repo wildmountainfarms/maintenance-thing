@@ -2,6 +2,7 @@ buildscript {
     ext {
         // https://github.com/spring-projects/spring-boot/wiki#release-notes
         springBootVersion = '2.4.0'
+        couchdbJavaVersion = '5a81cb88c4'
     }
     repositories {
         mavenCentral()
@@ -27,7 +28,7 @@ dependencies {
     // https://github.com/leangen/graphql-spqr/releases
     implementation 'io.leangen.graphql:spqr:0.11.2'
 
-    implementation 'com.github.wildmountainfarms.solarthing:couchdb:v2021.6.0'
+    implementation "com.github.retrodaredevil:couchdb-java:$couchdbJavaVersion"
 
     implementation project(":core")
     runtimeOnly project(":client")

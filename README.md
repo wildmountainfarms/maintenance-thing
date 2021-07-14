@@ -123,3 +123,4 @@ A "scheduled task" is optionally associated with a "maintenance schedule", so th
 ### TODO
 * Support viewing of PDF documents
   * https://www.npmjs.com/package/reactjs-pdf-reader
+* Use this https://vanwilgenburg.wordpress.com/2020/09/02/docker-compose-gradle-bitbucket/
