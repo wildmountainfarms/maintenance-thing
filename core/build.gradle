@@ -12,4 +12,7 @@ dependencies {
     api "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
     api "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion"
 
+
+    api group: 'com.squareup.okhttp3', name: 'okhttp', version: "$okhttpVersion"
+
 }

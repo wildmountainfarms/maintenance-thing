@@ -18,7 +18,7 @@ internal class ReferenceTest {
         assertTrue(parsed is SimpleReference)
         assertEquals(uuid, parsed.uuid)
 
-        val reference = simpleReference.toReference("meaningless_value", Thing::class.java)
+        val reference = simpleReference.toReference("meaningless_value", "another_meaningless_value", Thing::class.java)
         val json2 = mapper.writeValueAsString(reference)
         assertEquals(json, json2)
     }

@@ -3,6 +3,7 @@ buildscript {
         kotlinVersion = '1.4.30' // https://github.com/JetBrains/kotlin/releases/latest
         junit5Version = "5.7.1" // https://junit.org/junit5/
         jacksonVersion = "2.12.0"
+        okhttpVersion = "4.9.1" // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
     }
 
     repositories {

@@ -2,8 +2,11 @@
 This is an example of what the database "schema" could look like:
 
 Databases:
-* `maintenance-thing_things`
-  * Contains: `Thing` and `ThingLink`
+* `maintenance-thing`
+  * Contains everything!
+  * document IDs like: `Thing:cbc39c8d-b65e-435b-ba84-532f06be7a82` (supports partitioning)
+    * `Thing` -> `Thing:`
+    * `ThingLink` -> `ThingLink:`
 
 
 ThingLink here:

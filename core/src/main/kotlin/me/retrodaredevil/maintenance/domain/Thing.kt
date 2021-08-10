@@ -12,8 +12,12 @@ class Thing(
         val commentSection: CommentSection,
 ) {
     companion object : ReferenceCreator<Thing> {
+        override val databaseName: String
+            get() = MaintenanceThingConstants.DATABASE_MAIN
+        override val typeName: String
+            get() = "Thing"
         override fun createReference(simpleReference: SimpleReference): Reference<Thing> {
-            return simpleReference.toReference(MaintenanceThingConstants.DATABASE_THINGS, Thing::class.java)
+            return simpleReference.toReference(databaseName, typeName, Thing::class.java)
         }
     }
 }

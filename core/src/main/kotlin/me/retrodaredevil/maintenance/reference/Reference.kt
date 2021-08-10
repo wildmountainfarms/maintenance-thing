@@ -12,12 +12,13 @@ sealed class BaseReference(
         val uuid: UUID
 )
 class SimpleReference(uuid: UUID) : BaseReference(uuid) {
-    fun <T : Any>toReference(databaseName: String, dataClass: Class<T>): Reference<T> = Reference(uuid, databaseName, dataClass)
+    fun <T : Any>toReference(databaseName: String, typeName: String, dataClass: Class<T>): Reference<T> = Reference(uuid, databaseName, typeName, dataClass)
 }
 
 // ": Any" makes it non-null
 class Reference<T : Any>(
         uuid: UUID,
         val databaseName: String,
+        val typeName: String,
         val dataClass: Class<T>,
 ) : BaseReference(uuid)
