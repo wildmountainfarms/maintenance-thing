@@ -26,13 +26,13 @@ class ThingLink(
             return false
         }
         if (!thingLinkThingsEquals(this, other, data.ignoreOrderForEquality)) {
-            return false;
+            return false
         }
         return data == other.data
     }
 
     override fun hashCode(): Int {
-        val thingHashCode = Objects.hash(thingA, thingB) + if (data.ignoreOrderForEquality) Objects.hash(thingB, thingA) else 0
-        return super.hashCode()
+        val thingHashCode = Objects.hash(thingA.uuid, thingB.uuid) + if (data.ignoreOrderForEquality) Objects.hash(thingB.uuid, thingA.uuid) else 0
+        return thingHashCode
     }
 }

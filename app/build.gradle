@@ -1,8 +1,8 @@
 buildscript {
     ext {
         // https://github.com/spring-projects/spring-boot/wiki#release-notes
-        springBootVersion = '2.4.0'
-        couchdbJavaVersion = '5a81cb88c4'
+        springBootVersion = '2.6.2'
+        couchdbJavaVersion = '83d5c5bb78'
     }
     repositories {
         mavenCentral()

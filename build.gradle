@@ -1,9 +1,9 @@
 buildscript {
     ext {
-        kotlinVersion = '1.4.30' // https://github.com/JetBrains/kotlin/releases/latest
-        junit5Version = "5.7.1" // https://junit.org/junit5/
-        jacksonVersion = "2.12.0"
-        okhttpVersion = "4.9.1" // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+        kotlinVersion = '1.6.10' // https://github.com/JetBrains/kotlin/releases/latest
+        junit5Version = "5.8.2" // https://junit.org/junit5/
+        jacksonVersion = "2.13.1"
+        okhttpVersion = "4.9.3" // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
     }
 
     repositories {
@@ -11,7 +11,6 @@ buildscript {
         mavenCentral()
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        jcenter()
         google()
     }
     dependencies {
@@ -52,8 +51,8 @@ subprojects {
     }
     compileKotlin {
         kotlinOptions {
-            languageVersion = "1.4"
-            jvmTarget = "1.8"
+            languageVersion = "1.5"
+            jvmTarget = "11"
             // jsr305 gives nullable/nonnull support for Java code annotated with javax stuff
             freeCompilerArgs += ["-Xjsr305=strict"]
         }
@@ -65,6 +64,6 @@ project(":app"){}
 
 wrapper {
     // https://gradle.org/releases/
-    gradleVersion = '6.8.3'
+    gradleVersion = '7.3.3'
     distributionType = Wrapper.DistributionType.ALL
 }

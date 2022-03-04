@@ -45,6 +45,24 @@ Things can also link to other things, however there can be different types of li
 ... "Battery Room Temperature" (or the link) will somehow be able to keep track of the temperature
 and the historical data for that. This historical data should have some sort of retention policy
 
+Links themselves can prevent users from adding links that already exist, but by default, users can also add links
+that don't make sense. This is where a "link restriction" system comes in. This is something we can add in later
+so that a thing can have some sort of type such as these:
+* General type
+  * Such as "horse" or "dog"
+  * Cannot contain anything.
+* Unique item
+  * Such as "house toilet" or "the garage"
+  * Cannot be used as a type link to other unique items
+* Replenish-able item
+  * Such as "milk" or "cereal"
+  * Cannot contain anything, cannot be contained by anything
+  * Allowed to be linked to by unique items using an inventory link
+
+Remember that "link restrictions" are not necessary for a functional system, they just prevent links that don't make sense
+and can also help newbies understand what can and cannot be linked to.
+This could be very useful for an eventual auto complete when links are being created.
+
 ### Maintenance Task
 A "maintenance task" is a concept in maintenance thing. Tasks usually have instructions associated with them,
 and can link to "things". Tasks can be:
@@ -112,7 +130,7 @@ A "scheduled task" does not have to be stored in the database for it to "exist".
 storing it in the database because it can create it from a "maintenance schedule". This is commonly how someone
 can look at future scheduled tasks.
 
-A "scheduled task" that is in the database for a reason other than its assign date passing can eaisly be removed, and may be removed automatically
+A "scheduled task" that is in the database for a reason other than its assign date passing can easily be removed, and may be removed automatically
 if the "maintenance schedule" is altered or deleted. If you don't want this to happen, you should "confirm" the "scheduled task",
 so that it stays even if the "maintenance schedule" is altered.
 
@@ -124,3 +142,18 @@ A "scheduled task" is optionally associated with a "maintenance schedule", so th
 * Support viewing of PDF documents
   * https://www.npmjs.com/package/reactjs-pdf-reader
 * Use this https://vanwilgenburg.wordpress.com/2020/09/02/docker-compose-gradle-bitbucket/
+
+### Technical details
+Maintenance Thing is a single page application, so `#` will be used in the URL to denote different pages
+
+* `/` endpoint will bring up something by default - not sure what yet
+* `/#graphql` is the graphql endpoint
+* `/#api` is the api endpoint for non-graphql stuff
+* `/#thing/<thing UUID>` will bring up a page on a particular thing
+* `/#thing/<thing UUID>/edit` will allow you to edit a thing
+  * The server will tell us if we are allowed to edit something, some users may not have access to this
+* `/#thing/<part thing UUID>` will redirect to the full UUID
+* `/#thing/<thing display name>` will redirect to `/thing/<thing UUID>`
+  * Case-insensitive
+* `/#task/<Maintenance Task UUID>` will bring up a page on a maintenance task
+* 

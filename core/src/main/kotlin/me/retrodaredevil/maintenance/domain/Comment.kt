@@ -6,5 +6,5 @@ import java.time.Instant
 class Comment(
         val userReference: Reference<User>,
         val postTime: Instant,
-        val contentMarkdown: String,
+        val contentMarkdown: String, // TODO possible make a Content interface and a MarkdownContent class
 )
